@@ -79,6 +79,18 @@ variable "folder_id" {
   default     = ""
 }
 
+variable "log_sink_in_org" {
+  type = bool
+  description = "Set to true if the Log Sink should be created at the organization level."
+  default = false
+}
+
+variable "org_id" {
+  type = string
+  description = "Organization ID where the Log Sink should be created. Set to null if not in a organization."
+  default = ""
+}
+
 variable "inclusion_filter" {
   type        = string
   description = "Inclusion filter to be used by the Log sink for the logs to be forwarded to Datadog."
