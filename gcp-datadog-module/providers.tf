@@ -13,27 +13,27 @@
 # limitations under the License.
 
 # Define the required Terraform providers and their versions
-terraform {
-  required_version = ">=1.6"
-
-  required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = ">= 5.0.0, < 6"
-    }
-    google-beta = {
-      source  = "hashicorp/google-beta"
-      version = ">= 5.0.0, < 6"
-    }
-  }
-}
-
-provider "google" {
-  project = var.project_id
-  region  = var.subnet_region
-}
-
-provider "google-beta" {
-  project = var.project_id
-  region  = var.subnet_region
-}
+# terraform {
+#   required_version = ">=1.6"
+#
+#   required_providers {
+#     google = {
+#       source  = "hashicorp/google"
+#       version = ">= 5.0.0, < 6"
+#     }
+#     google-beta = {
+#       source  = "hashicorp/google-beta"
+#       version = ">= 5.0.0, < 6"
+#     }
+#   }
+# }
+#
+# provider "google" {
+#   project = var.project_id
+#   region  = var.subnet_region
+# }
+#
+# provider "google-beta" {
+#   project = var.project_id
+#   region  = var.subnet_region
+# }
