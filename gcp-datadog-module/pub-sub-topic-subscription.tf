@@ -61,6 +61,15 @@ resource "google_pubsub_topic_iam_member" "logs_sa_publishing_permissions_folder
   member  = "serviceAccount:service-folder-${var.folder_id}@gcp-sa-logging.iam.gserviceaccount.com"
 }
 
+# Define IAM permissions for the Log Sink identity to publish logs to the topic (Sink at the ORG level)
+resource "google_pubsub_topic_iam_member" "logs_sa_publishing_permissions_org" {
+  count   = var.log_sink_in_org ? 1 : 0
+  project = var.project_id
+  topic   = google_pubsub_topic.datadog_topic.id
+  role    = "roles/pubsub.publisher"
+  member  = "serviceAccount:service-org-${var.org_id}@gcp-sa-logging.iam.gserviceaccount.com"
+}
+
 #########################################################
 ################## DEAD LETTER TOPIC  ###################
 #########################################################
