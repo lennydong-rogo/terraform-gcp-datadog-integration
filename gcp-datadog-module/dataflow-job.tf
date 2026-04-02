@@ -32,7 +32,9 @@ resource "google_dataflow_job" "pubsub_stream_to_datadog" {
     url                   = var.datadog_site_url,
     apiKeySecretId        = google_secret_manager_secret_version.secret_version.name,
     apiKeySource          = "SECRET_MANAGER",
-    outputDeadletterTopic = google_pubsub_topic.output_dead_letter.id
+    outputDeadletterTopic = google_pubsub_topic.output_dead_letter.id,
+    parallelism           = tostring(var.parallelism),
+    batchCount            = tostring(var.batch_count)
   }
   on_delete = "cancel"
   labels    = { dataflow-job-label = "datadog_terraform" }

@@ -96,3 +96,15 @@ variable "inclusion_filter" {
   description = "Inclusion filter to be used by the Log sink for the logs to be forwarded to Datadog."
   default     = ""
 }
+
+variable "parallelism" {
+  type        = number
+  description = "Number of parallel requests to Datadog. Default of 1 causes hot key issues under load. Recommended: 5-10."
+  default     = 10
+}
+
+variable "batch_count" {
+  type        = number
+  description = "Batch size for sending events to Datadog. Default: 100."
+  default     = 100
+}
