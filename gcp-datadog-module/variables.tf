@@ -99,8 +99,8 @@ variable "inclusion_filter" {
 
 variable "parallelism" {
   type        = number
-  description = "Number of parallel requests to Datadog. Default of 1 causes hot key issues under load. Recommended: 5-10."
-  default     = 10
+  description = "Number of parallel requests to Datadog. Must be high enough to avoid hot-key bottlenecks. Recommended: 80+."
+  default     = 80
 }
 
 variable "batch_count" {
